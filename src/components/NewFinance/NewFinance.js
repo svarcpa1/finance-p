@@ -11,6 +11,7 @@ const NewFinance = (props) => {
       id: Math.floor(Math.random() * (999 - 100 + 1) + 100).toString(),
     };
 
+    //comment
     props.onAddFinanceData(financeData);
   };
 
