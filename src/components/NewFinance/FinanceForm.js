@@ -10,12 +10,17 @@ const FinanceForm = (props) => {
   const [userInput, setUserinput] = useState({
     enteredTitle: "",
     enteredAmount: "",
-    enteredDate: "",
+    enteredDate: "2021-09-01",
   });
 
   const addFinanceHandler = (event) => {
     // prevents default behavior = request not send, page not reloaded
     event.preventDefault();
+
+    if (userInput.enteredTitle === "" || userInput.enteredAmount === 0) {
+      alert("Please add Title and Price");
+      return;
+    }
 
     const financeData = {
       title: userInput.enteredTitle,
@@ -31,7 +36,7 @@ const FinanceForm = (props) => {
     setUserinput({
       enteredTitle: "",
       enteredAmount: "",
-      enteredDate: "",
+      enteredDate: "2021-09-01",
     });
   };
 
@@ -78,6 +83,8 @@ const FinanceForm = (props) => {
           type="text"
           value={userInput.enteredTitle}
           onChange={titleChangeHandler}
+          required="true"
+          placeholder="Insert a name"
         />
       </div>
       <div className="new-finance__control">
@@ -88,6 +95,8 @@ const FinanceForm = (props) => {
           step="1"
           value={userInput.enteredAmount}
           onChange={amountChangeHandler}
+          required="true"
+          placeholder="Insert a price"
         />
       </div>
       <div className="new-finance__control">
@@ -98,6 +107,7 @@ const FinanceForm = (props) => {
           max="2022-12-31"
           onChange={dateChangeHandler}
           value={userInput.enteredDate}
+          required="true"
         />
       </div>
       <div className="new-finance__actions">

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import FinanceItemBox from "./components/Finance/FinanceItemBox";
 import NewFinance from "./components/NewFinance/NewFinance";
 
-const INITIAL_FINANCE = [
+let INITIAL_FINANCE = [
   {
     id: "900",
     title: "Book",
@@ -36,10 +36,20 @@ const App = () => {
     });
   };
 
+  const deleteFinance = (id) => {
+    const financeItemsAllRemoved = [...financeItemsAll].filter(
+      (item) => item.id !== id
+    );
+    setFinanceItems(financeItemsAllRemoved);
+  };
+
   return (
     <div>
       <NewFinance onAddFinanceData={addFinanceDataHandler} />
-      <FinanceItemBox financeItems={financeItemsAll}></FinanceItemBox>
+      <FinanceItemBox
+        financeItems={financeItemsAll}
+        onDelete3={deleteFinance}
+      ></FinanceItemBox>
     </div>
   );
 };

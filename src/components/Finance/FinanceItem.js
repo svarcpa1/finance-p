@@ -5,6 +5,10 @@ import DateItem from "./DateItem";
 import Card from "../General UI/Card";
 
 const FinanceItem = (props) => {
+  const removeFinanceHandler = () => {
+    props.onDelete(props.id);
+  };
+
   return (
     //Custom components cannot be used as wrapper by default
     //Props.children has to be used on wrapper
@@ -16,7 +20,13 @@ const FinanceItem = (props) => {
           <div className="finance-item__price">
             {props.price + " " + props.currency}
           </div>
-          <a href="#" className="close"></a>
+          <div
+            className="close"
+            onClick={() => {
+              if (window.confirm("Are you sure you wish to delete this item?"))
+                removeFinanceHandler();
+            }}
+          />
         </div>
       </Card>
     </li>

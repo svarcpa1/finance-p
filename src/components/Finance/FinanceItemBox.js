@@ -18,6 +18,10 @@ const FinanceItemBox = (props) => {
     (fi) => fi.date.getFullYear() + "" === filteredYear
   );
 
+  const deleteItemHandler = (id) => {
+    props.onDelete3(id);
+  };
+
   return (
     <Card className="finance_box">
       <div>
@@ -27,7 +31,10 @@ const FinanceItemBox = (props) => {
         />
       </div>
       <FinanceChart filteredFinance={filteredFinance} />
-      <FinanceItemList filteredFinance={filteredFinance} />
+      <FinanceItemList
+        filteredFinance={filteredFinance}
+        onDelete2={deleteItemHandler}
+      />
     </Card>
   );
 };
