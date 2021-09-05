@@ -20,7 +20,7 @@ const FinanceForm = (props) => {
     const financeData = {
       title: userInput.enteredTitle,
       date: new Date(userInput.enteredDate),
-      price: userInput.enteredAmount,
+      price: +userInput.enteredAmount,
       currency: "CZK",
     };
 
@@ -101,6 +101,9 @@ const FinanceForm = (props) => {
         />
       </div>
       <div className="new-finance__actions">
+        <button onClick={props.onCancelFinanceForm} type="button">
+          Cancel
+        </button>
         <button onClick={addFinanceHandler} type="submit">
           Add Finance
         </button>

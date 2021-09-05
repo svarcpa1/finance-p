@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 
-import FinanceItemList from "./components/Finance/FinanceItemList";
+import FinanceItemBox from "./components/Finance/FinanceItemBox";
 import NewFinance from "./components/NewFinance/NewFinance";
 
 const INITIAL_FINANCE = [
   {
     id: "900",
     title: "Book",
-    date: new Date(2021, 2, 8),
-    price: 250,
+    date: new Date(2020, 2, 8),
+    price: 400,
     currency: "CZK",
   },
   {
@@ -20,9 +20,9 @@ const INITIAL_FINANCE = [
   },
   {
     id: "113",
-    title: "Mobile",
+    title: "Pizza",
     date: new Date(2021, 10, 7),
-    price: 19999,
+    price: 200,
     currency: "CZK",
   },
 ];
@@ -39,7 +39,7 @@ const App = () => {
   return (
     <div>
       <NewFinance onAddFinanceData={addFinanceDataHandler} />
-      <FinanceItemList financeItems={financeItemsAll}></FinanceItemList>
+      <FinanceItemBox financeItems={financeItemsAll}></FinanceItemBox>
     </div>
   );
 };

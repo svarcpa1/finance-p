@@ -1,7 +1,10 @@
-.finance_list {
-  padding: 1rem;
-  background-color: #44bba4;
-  margin: 2rem auto;
-  width: 50rem;
-  max-width: 95%;
+.finance-list {
+  list-style: none;
+  padding: 0;
+}
+
+.finance-list__fallback {
+  margin-top: 4rem;
+  color: 393e41;
+  text-align: center;
 }
